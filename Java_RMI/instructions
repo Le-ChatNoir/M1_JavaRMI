@@ -1,0 +1,17 @@
+http://beru.univ-brest.fr/~singhoff/ENS/UE_objets_repartis/TP-RMI/tp.html
+
+$> source java.zsh
+Compiler avec:
+$> javac *.java
+Pour souche et squelette:
+$> rmic -vcompat  [NomDeLAppli]
+
+Dans le répertoir avec les fichiers.class, sur la machine localhost, 
+-lancer rmiregistry en arrière plan avec le numéro de port 20000. Il faut kill et relancer le rmi dans le repertoir actif
+$> rmiregistry 20000&
+-Lancer le serveur
+$> java -Djava.security.policy=java.policy HelloServeur  20000 coucou
+-Lancer le Client
+$> java -Djava.security.policy=java.policy HelloClient  20000 localhost
+
+Il y a deux serveurs à lancer, rmiregistry (serveur de nom), et le serveur java (application)

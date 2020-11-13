@@ -1,0 +1,13 @@
+1. Instantiation, serveur l.60. La création sert aussi à créer le serveur RMI, ET à activer l'objet avec le new.
+Là où CORBA sérialisait la methode et la stockais dans un .ref, ici, on crée un nom symbolique (//machine:port/methode)
+Le nom de la machine (ex 160de29) est un alias à son adresse IP. Lors d'un SSH, si on utilise fs.univ-brest.fr, la deuxième partie est l'Ethernet, et est une adresse qualifiée, un chemin particulier à prendre, different de fswifi.univ-brest.fr, ou fs. fs est un alias qu'il faut traduire en adresse, soit par DNS, hosts, ou yellowpage.
+CORBA : grosses machines avec beaucoup de traffic
+Java RMI : petites applis centralisées
+
+2. Client: l.39 Naming.lookup s'adresse au serveur de nom RMI pour avoir la machine correspondate., RMI renvoie également la souche, permettant de faire le cast dans le client
+
+3. connect.accept sur les ports indiqués pour le serveur, connect de meme pour le client. Donc de 1024-65535, les ports autorisés pour le serveur, et le port 80 accepté par le client OU serveur à se co sur un serveur avec le port 80 (serveur http)
+
+4. MyHostName.java sert à transformer un nom (fs) en adresse qualifiée toujours de la même manière. Et si le client ou le serveur utilisent la même lanière, alors pas besoin de passer par le DNS etc... Adresse déjà qualifiée et une adresse est utilisée, pas seulement un nom.
+
+5.  
